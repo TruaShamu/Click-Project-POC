@@ -1,0 +1,46 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('includes/navigation.ejs') %>
+
+    <main>
+        <p><%= clicks.length %> clicks: </p>
+        <% if (clicks.length > 0 ) { %>
+            <ol>
+            <% for (let click of clicks) { %>
+                <li><%= ((click.date)) %></li>
+            <% } %>
+            </ol>
+        <% } else { %>
+            <h1>No clicks found.</h1>
+        <% } %>
+
+        <p>Today's Clicks:</p>
+        <ol>
+            <% for (let click of clicks) { %>
+                <% const now = new Date(); %>
+                <% const then = new Date(click.date); %>
+                <% const msBetweenDates = Math.abs(then.getTime() - now.getTime()); %>
+                <% const hoursBetweenDates = msBetweenDates / (60 * 60 * 1000); %>
+                <% if (hoursBetweenDates < 24 ) { %>
+                    <li><%= ((click.date)) %></li>
+                <% } %>  
+            <% } %>
+        </ol>
+
+        <p>This Weeks's Clicks:</p>
+        <ol>
+            <% for (let click of clicks) { %>
+                <% const now = new Date(); %>
+                <% const then = new Date(click.date); %>
+                <% const msBetweenDates = Math.abs(then.getTime() - now.getTime()); %>
+                <% const hoursBetweenDates = msBetweenDates / (24 * 60 * 60 * 1000); %>
+                <% if (hoursBetweenDates < 7 ) { %>
+                    <li><%= ((click.date)) %></li>
+                <% } %>  
+            <% } %>
+        </ol>
+
+    </main>
+<%- include('includes/end.ejs') %>
