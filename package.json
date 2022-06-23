@@ -1,13 +1,17 @@
 {
-  "name": "exercise1",
+  "name": "click",
   "version": "1.0.0",
-  "description": "Complete Node.js Guide",
+  "description": "Clicky",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
     "start-server": "node app.js"
   },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "author": "trua shamu",
   "license": "ISC",
   "dependencies": {
@@ -16,6 +20,9 @@
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "pug": "^3.0.2"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
